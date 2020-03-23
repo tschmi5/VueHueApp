@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+      <!-- <Login v-if="loggedIn"></Login> -->
+      <Home></Home>
+      <!-- <tab name="Step 1" info="Introduction" :selected="true">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" name="fullname" type="text" placeholder="Text input"
+                        v-model="registration.name" data-vv-scope="step1" v-validate="'required'">
+                    <p class="help is-danger" v-show="errors.has('step1.fullname')">
+                         No Bueno 
+                    </p>
+                </div>
+            </div>
+        </tab> -->
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home';
+import Login from './components/Login';
+import HueBridge from './services/API/HueBridge.js'
+import Tab from './components/Tab'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    Home,
+    Login,
+    Tab
+  },
+
+  data: () => ({
+    loggedIn: true
+  }),
+  created(){
+    this.isLoggedIn = HueBridge.isLoggedIn();
+  }
+};
+</script>

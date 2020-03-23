@@ -1,0 +1,8 @@
+.basic-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+.card {
+    padding: 10px
+}
