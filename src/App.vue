@@ -19,17 +19,17 @@
 
 <script>
 import Home from './components/Home';
-import Login from './components/Login';
+// import Login from './components/Login';
 import HueBridge from './services/API/HueBridge.js'
-import Tab from './components/Tab'
+// import Tab from './components/Tab'
 
 export default {
   name: 'App',
 
   components: {
     Home,
-    Login,
-    Tab
+    // Login,
+    // Tab
   },
 
   data: () => ({
